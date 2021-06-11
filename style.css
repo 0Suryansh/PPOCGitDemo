@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    background-color: pink;
+}
+#image{
+    border: 2px solid red;
+    height: 500px;
+    width: 600px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  border-radius: 20px;
+
+}
+a:link, a:visited {
+    
+    text-align: center;
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-decoration: none;
+  margin-top: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+  }
+  
+  a:hover, a:active {
+    background-color: red;
+  }
+  .centered {
+    position: fixed; /* or absolute */
+    top: 70%;
+    left: 47%;
+  }
