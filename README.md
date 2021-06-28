@@ -58,7 +58,6 @@ right_eye = stat(position[42],position[43],
         	position[38], position[41], position[40], position[39])
 ```
 In the last part of the code we have to program only when to show different states accordingly to the ratio we received as described above:
-<br> 
 ```python 
 if(right_eye==1 or left_eye==1):
         	active=0
