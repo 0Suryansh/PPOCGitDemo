@@ -36,7 +36,7 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
   
 The below function calculate that ratio of eye in open or closed state, by that ratio we can predict whether eye is open or closed.
 You can also change the values accordingly to you.
-```python 
+ ```python
 def stat(a,b,c,d,e,f):
 	vtl = calc(b,d) + calc(c,e)
 	htl = calc(a,f)
@@ -48,7 +48,7 @@ def stat(a,b,c,d,e,f):
 		return 2
 	else:
 		return 0
-```
+ ```
 <br>
 The code below uses above function in action, see how the arguments are passed, thosed 68 facial landmarks are stored in form of array and those related to eyes are only used in the code below.
 ```python 
