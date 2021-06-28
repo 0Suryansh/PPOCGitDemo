@@ -49,7 +49,15 @@ def stat(a,b,c,d,e,f):
 	else:
 		return 0
  ```
+<br>The above function calculate that ratio of eye in open or closed state, by that ratio we can predict whether eye is open or closed.
+You can also change the values accordingly to you.
 <br>
 The code below uses above function in action, see how the arguments are passed, thosed 68 facial landmarks are stored in form of array and those related to eyes are only used in the code below.
+```python 
+right_eye = stat(position[42],position[43], 
+        	position[44], position[47], position[46], position[45])
+        left_eye = stat(position[36],position[37], 
+        	position[38], position[41], position[40], position[39])
+```
 
 
