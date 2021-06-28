@@ -8,6 +8,7 @@ In simple words, code tries to measure the ratio of vertical and horizontal dist
 Here are those 68 landmarks that dlib uses:
 <a href= "https://pyimagesearch.com/wp-content/uploads/2017/04/facial_landmarks_68markup.jpg">Please Note the landmark number for eye</a>
 <img src = "https://pyimagesearch.com/wp-content/uploads/2017/04/facial_landmarks_68markup.jpg">
+<br>
   ```python
   detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -15,6 +16,7 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
   The code starts by Initializing the camera and taking the instance of the subject and then it Initialize the dlib's face detector and landmark detector.  
   Then by looping in above mentioned face detector's generated rectangle, we can find the (x,y) co-ordinates of the rectangle under which whole faace can be located.
   See below code:
+  <br>
 ```python
   faces = detector(image)
     #detected face in faces array
@@ -27,12 +29,13 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
         face_frame = frame.copy()
         cv2.rectangle(face_frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
 ```
+<br>
   Then we have also located landmarks on face and converted them to an array using numpy.
   ```python
   position = predictor(image, face)
         position = face_utils.shape_to_np(position)
 ```
-  
+  <br>
   
 The below function calculate that ratio of eye in open or closed state, by that ratio we can predict whether eye is open or closed.
 You can also change the values accordingly to you.
@@ -49,9 +52,11 @@ def stat(a,b,c,d,e,f):
 	else:
 		return 0
  ```
+ <br>
 Now
 <br>
 The code below uses above function in action, see how the arguments are passed, thosed 68 facial landmarks are stored in form of array and those related to eyes are only used in the code below.
+<br>
 ```python 
 right_eye = stat(position[42],position[43], 
         	position[44], position[47], position[46], position[45])
