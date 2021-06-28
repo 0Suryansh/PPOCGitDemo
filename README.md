@@ -16,7 +16,7 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
   Then by looping in above mentioned face detector's generated rectangle, we can find the (x,y) co-ordinates of the rectangle under which whole faace can be located.
   See below code:
 ```python
-  faces = detector(gray)
+  faces = detector(image)
     #detected face in faces array
     for face in faces:
         x1 = face.left()
@@ -29,13 +29,26 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 ```
   Then we have also located landmarks on face and converted them to an array using numpy.
   ```python
-  landmarks = predictor(gray, face)
-        landmarks = face_utils.shape_to_np(landmarks)
+  position = predictor(image, face)
+        position = face_utils.shape_to_np(position)
 ```
   
   
-The above function calculate that ratio of eye in open or closed state, by that ratio we can predict whether eye is open or closed.
+The below function calculate that ratio of eye in open or closed state, by that ratio we can predict whether eye is open or closed.
 You can also change the values accordingly to you.
+```python 
+def stat(a,b,c,d,e,f):
+	vtl = calc(b,d) + calc(c,e)
+	htl = calc(a,f)
+	ratio = vtl/htl
+
+	if(ratio>0.42 and ratio<=0.50):
+		return 1
+	elif(ratio>0.50):
+		return 2
+	else:
+		return 0
+```
 <br>
 The code below uses above function in action, see how the arguments are passed, thosed 68 facial landmarks are stored in form of array and those related to eyes are only used in the code below.
 ```python 
@@ -44,5 +57,31 @@ right_eye = stat(position[42],position[43],
         left_eye = stat(position[36],position[37], 
         	position[38], position[41], position[40], position[39])
 ```
+In the last part of the code we have to program only when to show different states accordingly to the ratio we received as described above:
+<br> 
+```python 
+if(right_eye==1 or left_eye==1):
+        	active=0
+        	drowsy+=1
+        	sleep=0
+        	if(drowsy>6):
+        		status="Drowsy!"
+        		color = (0,0,255)
 
+        elif(right_eye==0 or left_eye==0):
+        	active=0
+        	drowsy=0
+        	sleep+=1
+        	if(sleep>6):
+        		status="SLEEPING!!!"
+        		color = (255,0,0)
+
+        else:
+        	active+=1
+        	drowsy=0
+        	sleep=0
+        	if(active>6):
+        		status="Active!"
+        		color = (0,255,0)
+```
 
