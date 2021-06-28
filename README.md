@@ -51,7 +51,7 @@ def stat(a,b,c,d,e,f):
  ```
 <br>
 The code below uses above function in action, see how the arguments are passed, thosed 68 facial landmarks are stored in form of array and those related to eyes are only used in the code below.
- ```python
+ ```
 right_eye = stat(position[42],position[43], 
         	position[44], position[47], position[46], position[45])
         left_eye = stat(position[36],position[37], 
