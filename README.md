@@ -6,8 +6,7 @@ To run the program you required to have openCV, numpy, dlib, imutils(face_utils 
 In simple words, code tries to measure the ratio of vertical and horizontal distance of your eyes. If that ratio lies between certain range(obviously based on previous data) one can predict if the eye is open or slightly open or closed. We first detect a face using dlib's frontal face detector. Once the face is detected , we try to detect the facial landmarks in the face using the dlib's landmark predictor. The landmark predictor returns 68 (x, y) coordinates representing different regions of the face, namely - mouth, left eyebrow, right eyebrow, right eye, left eye, nose and jaw. Ofcourse, we don't need all the landmarks, here we need to extract only the eye region. 
 
 Here are those 68 landmarks that dlib uses:
-<a href= "https://pyimagesearch.com/wp-content/uploads/2017/04/facial_landmarks_68markup.jpg">
-<b> Please Note the landmark number for eye</b><br>
+<a href= "https://pyimagesearch.com/wp-content/uploads/2017/04/facial_landmarks_68markup.jpg">Please Note the landmark number for eye</a>
 <img src = "https://pyimagesearch.com/wp-content/uploads/2017/04/facial_landmarks_68markup.jpg">
   ```python
   detector = dlib.get_frontal_face_detector()
