@@ -61,29 +61,3 @@ right_eye = stat(position[42],position[43],
 
 In the last part of the code we have to program only when to show different states accordingly to the ratio we received as described above:
 
-```python 
-if(right_eye==1 or left_eye==1):
-        	active=0
-        	drowsy+=1
-        	sleep=0
-        	if(drowsy>6):
-        		status="Drowsy!"
-        		color = (0,0,255)
-
-        elif(right_eye==0 or left_eye==0):
-        	active=0
-        	drowsy=0
-        	sleep+=1
-        	if(sleep>6):
-        		status="SLEEPING!!!"
-        		color = (255,0,0)
-
-        else:
-        	active+=1
-        	drowsy=0
-        	sleep=0
-        	if(active>6):
-        		status="Active!"
-        		color = (0,255,0)
-```
-
